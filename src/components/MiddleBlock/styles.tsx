@@ -47,7 +47,12 @@ export const ImageGalleryCaption = styled("div")`
   }
 `;
 export const ImageGalleryCaptionHeading = styled("strong")`
-  margin-bottom: 102px;
+  display: block;
+  margin-top: 25px;
+  a {
+    font-family: "Motiva Sans Bold";
+    font-size: 21px;
+  }
   span {
     transform: rotate(45deg);
   }

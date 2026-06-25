@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { Row, Col } from "antd";
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { useTranslation } from "react-i18next";
@@ -10,8 +10,6 @@ import {
   MiddleBlockSection,
   Content,
   ContentWrapper,
-  ImageGalleryCaption,
-  ImageGalleryCaptionContent,
   ImageGalleryCaptionHeading,
   ImageGalleryItem,
   NewLink
@@ -37,6 +35,7 @@ export interface ReactImageGalleryItem extends GalleryItem {
 const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, content, button, id, galleryItems }, ref) => {
   const { t } = useTranslation();
   const images2: ReactImageGalleryItem[] = galleryItems;
+  const [galleryImage, setGalleryImage] = useState(images2[0]);
 
   return (
     <MiddleBlockSection ref={ref}>
@@ -49,17 +48,15 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
                 showPlayButton={false}
                 showFullscreenButton={false}
                 items={images2}
+                onSlide={i=>setGalleryImage(images2[i])}
                 renderItem={({original, originalTitle, link, description, thumbnail }:ReactImageGalleryItem)=><>
                   <ImageGalleryItem className="image-gallery-image" src={original}></ImageGalleryItem>
-                  <ImageGalleryCaption>
-                    <ImageGalleryCaptionHeading>
-                      <NewLink href={link} rel="noreferrer noopener" target="_blank">{originalTitle} <ArrowUpOutlined /></NewLink>
-                    </ImageGalleryCaptionHeading>
-                    <ImageGalleryCaptionContent>{description}</ImageGalleryCaptionContent>
-                  </ImageGalleryCaption>
                 </>}
               />
-              <Content>{t(content)}</Content>
+              <ImageGalleryCaptionHeading>
+                <NewLink href={galleryImage.link} rel="noreferrer noopener" target="_blank">{galleryImage.originalTitle} <ArrowUpOutlined /></NewLink>
+              </ImageGalleryCaptionHeading>
+              <Content>{t(galleryImage.description??"")}</Content>
             </Col>
           </ContentWrapper>
         </Row>
