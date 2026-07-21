@@ -28,6 +28,7 @@ export const ContentWrapper = styled("div")`
 export const ImageGalleryItem = styled("img")`
   object-fit: inherit !important;
   max-height: none !important;
+  max-width: 75%;
 `;
 export const ImageGalleryCaption = styled("div")`
   position: absolute;
@@ -53,9 +54,6 @@ export const ImageGalleryCaptionHeading = styled("strong")`
     font-family: "Motiva Sans Bold";
     font-size: 21px;
   }
-  span {
-    transform: rotate(45deg);
-  }
 `;
 export const ImageGalleryCaptionContent = styled("p")`
   font-size: 12px;
@@ -65,5 +63,23 @@ export const NewLink = styled("a")`
   color: rgb(53, 56, 57);
   &:hover {
     color: rgb(53, 56, 57);
+  }
+`;
+export const ImageGalleryContainer = styled("div")`
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+
+  
+  width: 75%;
+  margin: 0 auto;
+
+  .image-slide {
+    max-width: 100%;
+    border-radius: 8px;
+
+    cursor: pointer;
   }
 `;

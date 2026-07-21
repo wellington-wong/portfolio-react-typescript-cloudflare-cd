@@ -2,15 +2,24 @@
   "title": "Skills & Technologies",
   "text": "From front-end interfaces to back-end systems, I use a versatile set of technologies to create seamless and functional applications.",
   "skills": [
-    {"title": "Backend", "content": "Laravel, Wordpress, Drupal"},
-    {"title": "Frontend", "content": "React, CSS, TypeScript, Bootstrap, jQuery"},
+    {"title": "Frontend", "content": "React, Next.js, Angular, TypeScript, Tailwind, Bootstrap"},
+    {"title": "Backend", "content": "Spring Boot, FastAPI, Laravel"},
     {"title": "Mobile", "content": "React Native"},
-    {"title": "AI", "content": "ChatGPT, Claude"},
-    {"title": "Tools", "content": "GitHub, Cloudflare, Amazon Web Services"}
+    
+    {"title": "Databases", "content": "PostgreSQL, MySQL"},
+    {"title": "CMS & Commerce", "content": "WordPress, Drupal, WooCommerce"},
+
+    {"title": "AWS", "content": "RDS, S3, CloudFront, SES, CLI"},
+    {"title": "AI", "content": "ChatGPT, Claude, Voyage AI"},
+
+
+  
+
+    {"title": "Infrastructure", "content": "Docker, GitHub Actions (CI/CD), CloudFlare, Vercel, DigitalOcean"}
   ],
   "github": {
   	"title": "Visit my GitHub",
-  	"link": "https://github.com/wellington-wong/wellingtonweb"
+  	"link": "https://github.com/wellington-wong"
   },
   "cloudIcons": [
     {"path": "logos/wordpress.png", "url": "https://wordpress.org"},

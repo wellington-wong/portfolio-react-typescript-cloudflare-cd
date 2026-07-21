@@ -111,4 +111,9 @@ export const Styles = createGlobalStyle`* {
     .ant-drawer-content-wrapper {
         width: 300px !important;
     }
+
+
+    .image-gallery-thumbnails-wrapper {
+        margin-top: 10px;
+    }
 `;
