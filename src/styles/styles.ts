@@ -114,6 +114,14 @@ export const Styles = createGlobalStyle`* {
 
 
     .image-gallery-thumbnails-wrapper {
-        margin-top: 10px;
+        margin-top: 0px;
+    }
+
+    .image-gallery-thumbnails-wrapper .image-gallery-thumbnail {
+        width: 70px;
+        padding: 5px;
+
+
+ 
     }
 `;

@@ -7,6 +7,7 @@ import { Button } from "../../common/Button";
 import { Image } from "../../common/Image";
 import { Cloud } from 'react-icon-cloud';
 import { GithubFilled } from '@ant-design/icons';
+import ImageSlicer from "../../common/utils/imageSlicer";
 import {
   ContentSection,
   Content,
@@ -62,7 +63,7 @@ const ContentBlock = forwardRef<HTMLDivElement, ContentBlockProps>(({
           <Col lg={11} md={11} sm={12} xs={24} className="cloud-icon">
             {id==='mission'&&icons?
               <Cloud options={{ wheelZoom: false, initial: [0.038, 0.038], outlineMethod: 'none', depth: 0.5, noMouse: true, frontSelect: true, freezeDecel: true }}>{ icons }</Cloud>:
-              <Image src={image} width="100%" height="100%" />
+              <ImageSlicer src={'/img/' + image} />
             }
             
           </Col>

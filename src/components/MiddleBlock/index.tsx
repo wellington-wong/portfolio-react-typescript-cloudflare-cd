@@ -8,6 +8,7 @@ import type { GalleryItem } from "react-image-gallery";
 //import { GithubFilled, LinkOutlined } from '@ant-design/icons';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ImageSlicer from "../../common/utils/imageSlicer";
 import {
   MiddleBlockSection,
   Content,
@@ -15,7 +16,8 @@ import {
   ImageGalleryCaptionHeading,
   ImageGalleryItem,
   NewLink,
-  ImageGalleryContainer
+  ImageGalleryContainer,
+  ImageSlicerContainer,
 } from "./styles";
 
 interface WebsiteItem {
@@ -84,7 +86,15 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
                   )
                 }}
-                renderItem={({group, websites}: ReactSlidesItem): React.JSX.Element => <CmsCollage group={group} websites={websites} />}
+                renderItem={({group, original, websites}: ReactSlidesItem): React.JSX.Element => {
+                  if (group === "wordpress" || group === "drupal") {
+                    return <CmsCollage group={group} websites={websites} />
+                  } else {
+                    return <ImageSlicerContainer>
+                      <ImageSlicer src={original} />
+                    </ImageSlicerContainer>
+                  }
+                }}
               />
              <ImageGalleryCaptionHeading>
                 <NewLink href={galleryImage.original} rel="noreferrer noopener" target="_blank">{galleryImage.originalTitle}</NewLink>

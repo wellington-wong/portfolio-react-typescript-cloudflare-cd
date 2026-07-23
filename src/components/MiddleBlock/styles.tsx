@@ -81,5 +81,12 @@ export const ImageGalleryContainer = styled("div")`
     border-radius: 8px;
 
     cursor: pointer;
+
+
   }
+`;
+
+export const ImageSlicerContainer = styled("div")`
+  width: 75%;
+  margin: 0 auto;
 `;

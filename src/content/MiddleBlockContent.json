@@ -191,6 +191,60 @@
 			  	"thumb": "/img/website-portfolio/twochic-thumb.jpg"
 			  }
 			]
+		
+	
+
+
+
+		},
+		{
+			"group": "react-native",
+			"original": "/img/website-portfolio/dpd-app.jpg",
+			"thumbnail": "/img/logos/react.png",
+		
+			
+			"description": "A mobile application built using React Native, designed to deliver a smooth cross-platform experience on both Android and iOS using a single codebase.",
+			"originalTitle": "React Native (Expo)",
+			"websites": []
+		},
+		{
+			"group": "laravel",
+			"original": "/img/website-portfolio/referrals.jpg",
+			"thumbnail": "/img/logos/laravel.png",
+
+
+
+			"description": "A Laravel-based referral web application built with scalability, maintainability, and clean architecture in mind.",
+			"originalTitle": "Laravel",
+			"websites": []
+		},
+		{
+			"group": "spring-boot",
+			"original": "/img/website-portfolio/ragchat.jpg",
+		
+
+			"thumbnail": "/img/logos/spring-boot.png",
+
+			"description": "A Retrieval-Augmented Generation (RAG) chatbot that provides context-aware responses by retrieving relevant document chunks before generating answers with an LLM.The application consists of an Angular frontend, a Spring Boot REST API backend, and PostgreSQL for persistent storage. It supports document ingestion, semantic retrieval, chat history, and contextual conversations.",
+			"originalTitle": "Angular + Spring Boot + PostgreSQL",
+			"websites": []
+		},
+		{
+
+
+
+			"group": "fastapi",
+			"original": "/img/website-portfolio/ai-summarizer.jpg",
+			"thumbnail": "/img/logos/fastapi.png",
+
+
+			"description": "An AI-powered web application that transforms lengthy notes into concise, easy-to-read summaries using the OpenAI API. Built with a modern full-stack architecture featuring Next.js, FastAPI, and PostgreSQL, with separate frontend and backend deployments for scalability.",
+			"originalTitle": "Next.js + FastAPI + PostgreSQL",
+
+
+	
+			"websites": []
+
 		}
 	]
 }

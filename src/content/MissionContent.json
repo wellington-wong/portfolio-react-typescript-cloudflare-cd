@@ -29,13 +29,30 @@
     {"path": "logos/bootstrap.png", "url": "https://getbootstrap.com"},
     {"path": "logos/woocommerce.png", "url": "https://woocommerce.com"},
     {"path": "logos/drupal.png", "url": "https://new.drupal.org/home"},
-    {"path": "logos/mongodb.png", "url": "https://www.mongodb.com"},
     {"path": "logos/photoshop.png", "url": "https://www.adobe.com/ph_en/products/photoshop.html"},
     {"path": "logos/html5.png", "url": "https://en.wikipedia.org/wiki/HTML5"},
     {"path": "logos/css3.png", "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"},
     {"path": "logos/chatgpt.png", "url": "https://chatgpt.com"},
     {"path": "logos/claude.png", "url": "https://claude.ai"},
     {"path": "logos/cloudflare.png", "url": "https://www.cloudflare.com"},
-    {"path": "logos/amazon.png", "url": "https://aws.amazon.com/"}
+    {"path": "logos/amazon.png", "url": "https://aws.amazon.com"},
+    {"path": "logos/laravel.png", "url": "https://laravel.com"},
+
+
+
+
+
+
+    {"path": "logos/digitalocean.png", "url": "https://www.digitalocean.com"},
+    {"path": "logos/docker.png", "url": "https://www.docker.com"},
+    {"path": "logos/fastapi.png", "url": "https://fastapi.tiangolo.com"},
+
+    {"path": "logos/nextjs.png", "url": "https://nextjs.org"},
+    {"path": "logos/postgresql.png", "url": "https://www.postgresql.org"},
+    {"path": "logos/spring-boot.png", "url": "https://spring.io"},
+
+    {"path": "logos/tailwind.png", "url": "https://tailwindcss.com"},
+    {"path": "logos/typescript.png", "url": "https://www.typescriptlang.org"}
+
   ]
 }
