@@ -118,7 +118,7 @@ export const Styles = createGlobalStyle`* {
     }
 
     .image-gallery-thumbnails-wrapper .image-gallery-thumbnail {
-        width: 70px;
+        width: 55px;
         padding: 5px;
 
 

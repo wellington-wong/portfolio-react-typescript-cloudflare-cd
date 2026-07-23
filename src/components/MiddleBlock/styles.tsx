@@ -49,7 +49,7 @@ export const ImageGalleryCaption = styled("div")`
 `;
 export const ImageGalleryCaptionHeading = styled("strong")`
   display: block;
-  margin-top: 25px;
+  margin-top: 10px;
   a {
     font-family: "Motiva Sans Bold";
     font-size: 21px;
@@ -69,7 +69,7 @@ export const ImageGalleryContainer = styled("div")`
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 10px 20px;
   padding: 20px;
 
   

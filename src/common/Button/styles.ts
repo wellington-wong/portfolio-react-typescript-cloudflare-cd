@@ -6,7 +6,7 @@ export const StyledButton = styled("button")<{ color?: string }>`
   font-size: 1rem;
   font-weight: 700;
   width: 100%;
-  border: 1px solid #edf3f5;
+  border: 0;
   padding: 13px 0;
   cursor: pointer;
   margin-top: 0.625rem;

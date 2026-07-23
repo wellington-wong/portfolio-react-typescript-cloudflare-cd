@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import styled from "styled-components";
 
 
@@ -44,13 +44,13 @@ interface Props {
 
 
 
-export default function ImageSlicer({
+export default forwardRef<HTMLDivElement, Props>(function ImageSlicer({
 	src,
 	rows = 3,
 
 
 	cols = 3,
-}: Props) {
+}: Props, ref: React.ForwardedRef<HTMLDivElement>) {
 
 
 	const [ratio, setRatio] = useState(1);
@@ -106,8 +106,10 @@ export default function ImageSlicer({
 			gridTemplateColumns: 	`repeat(${cols}, 1fr)`,
 			gridTemplateRows: `repeat(${rows}, 1fr)`,
 		}}
+
+		ref={ref}
 	>{slices}</Container>
-}
+});
 
 function ImageSlice({
 	src,
