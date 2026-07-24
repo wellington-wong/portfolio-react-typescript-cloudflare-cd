@@ -89,11 +89,10 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
                 renderItem={({group, original, websites}: ReactSlidesItem): React.JSX.Element => {
                   if (group === "wordpress" || group === "drupal") {
                     return <CmsCollage group={group} websites={websites} />
-                  } else {
-                    return <ImageSlicerContainer>
-                      <ImageSlicer src={original} />
-                    </ImageSlicerContainer>
-                  }
+                  } 
+
+              
+                  return <AnimatedSlide src={ original } group={ group } />
                 }}
               />
              <ImageGalleryCaptionHeading>
@@ -170,6 +169,115 @@ function CmsCollage ({group, websites}: CollageProps) {
       <ImageGalleryItem className="image-slide" src={website.screenshot} key={i} />
     ));
     return <ImageGalleryContainer className="image-gallery-container" ref={collageRef}>{slides}</ImageGalleryContainer>
+
+
+
+
+
+
+
+}
+
+
+
+
+
+interface AnimatedSlideProps {
+  src: string;
+  group?: string;
+}
+
+function AnimatedSlide({ src, group }: AnimatedSlideProps) {
+
+  const ref = useRef(null);
+
+
+  
+  const tl = useRef<GSAPTimeline | null>(null);
+
+  useEffect(() => {
+
+
+    const handler = (e: Event) => {
+
+
+
+
+  
+      const activeGroup = (e as CustomEvent<string>).detail;
+
+      if (activeGroup !== group) return;
+
+      tl.current?.restart();
+    }
+
+
+    
+
+    document.addEventListener("gallery-slide", handler);
+
+    return () => document.removeEventListener("gallery-slide", handler);
+
+  }, [group]);
+
+
+  useGSAP(() => {
+
+    const q = gsap.utils.selector(ref);
+
+    tl.current = gsap.timeline({
+
+
+  
+      paused: true
+    });
+
+
+    tl.current.from(q(".image-tile"), {
+
+
+      opacity: 0,
+    
+  
+
+
+
+      scale: 0,
+      rotation: () => gsap.utils.random(-188, 188),
+
+      x: () => gsap.utils.random(-500, 500),
+
+
+  
+      y: () => gsap.utils.random(-500, 500),
+
+      stagger: {
+        each: 0.05,
+        from: "center"
+      },
+
+
+
+  
+
+
+      ease: "back.out(1.7)",
+      duration: 1
+
+    });
+
+
+
+
+
+    tl.current.play();
+
+});
+
+  return <ImageSlicerContainer>
+    <ImageSlicer src={src} ref={ref} />
+  </ImageSlicerContainer>
+
 
 }
 

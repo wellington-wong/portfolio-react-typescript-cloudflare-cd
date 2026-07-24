@@ -13,7 +13,7 @@ const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 
-const galleryItems = MiddleBlockContent.galleryItems.sort(()=>Math.random() - .8);
+const galleryItems = MiddleBlockContent.galleryItems.sort(()=>Math.random() - .2327328039890);
 const Home = () => {
   Clarity.init("wisod5y80f");
   const { setContextData } = useContext(AppContext);
