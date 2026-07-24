@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 
 export const HeaderSection = styled("header")`
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   .ant-row-space-between {
     align-items: center;
     text-align: center;
@@ -15,8 +15,21 @@ export const HeaderSection = styled("header")`
   width: 100%;
   background-color: #f5f5f5;
   z-index: 1;
-`;
 
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 890px) {
+    padding: 1rem 0.5rem;
+  }
+
+`;
 export const LogoContainer = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -36,7 +49,7 @@ export const LogoH3 = styled("h3")`
 
 export const LogoImg = styled("img")`
   width: 158px;
-  margin-top: 9px;
+  margin-top: 0;
   opacity: 0.789
 `;
 
@@ -59,7 +72,7 @@ export const CustomNavLink = styled("div")`
 `;
 
 export const Burger = styled("div")`
-  @media only screen and (max-width: 890px) {
+  @media only screen and (max-width: 939px) {
     display: block;
   }
 
@@ -71,7 +84,7 @@ export const Burger = styled("div")`
 `;
 
 export const NotHidden = styled("div")`
-  @media only screen and (max-width: 890px) {
+  @media only screen and (max-width: 939px) {
     display: none;
   }
 `;
@@ -97,8 +110,15 @@ export const CustomNavLinkSmall = styled(NavLink)`
     text-underline-position: under;
     text-decoration: rgb(255, 130, 92) solid underline;
   }
-`;
 
+  button {
+    margin-top: 0;
+
+
+
+
+  }
+`;
 export const Label = styled("span")`
   font-weight: 500;
   color: #404041;
