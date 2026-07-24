@@ -48,7 +48,7 @@ export const LogoH3 = styled("h3")`
 `;
 
 export const LogoImg = styled("img")`
-  width: 158px;
+  width: 128px;
   margin-top: 0;
   opacity: 0.789
 `;
