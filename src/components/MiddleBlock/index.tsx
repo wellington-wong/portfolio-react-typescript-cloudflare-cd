@@ -128,7 +128,7 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
           
           </ContentWrapper>
-          <ModalComp slide={galleryImage} modalOpen={modalOpen} />
+          <ModalComp slide={galleryImage} modalOpen={modalOpen} setModalOpen={() => setModalOpen(!modalOpen)} />
         </Row>
       </Slide>
     </MiddleBlockSection>
@@ -321,13 +321,16 @@ interface ModalProps {
   slide: ReactSlidesItem;
   modalOpen: boolean;
 
+
+
+
+
+  setModalOpen: () => void;
+
 }
 
 
-
-
-
-function ModalComp({modalOpen, slide: {group, websites}}: ModalProps) {
+function ModalComp({modalOpen, setModalOpen, slide: {group, websites}}: ModalProps) {
 
   if (group !== "drupal" && group !== "wordpress") return <></>;
 
@@ -335,16 +338,27 @@ function ModalComp({modalOpen, slide: {group, websites}}: ModalProps) {
 
   return <Modal
             open={modalOpen}
-            onCancel={alert}
+            onCancel={setModalOpen}
 
 
 
  
             width={"88%"}
+            
+          
+
+          
+
+          footer={null}
+
           >
             <ImageGallery
               items={slides}
+
+            
             />
+
           </Modal>
 }
+
 export default(MiddleBlock);
