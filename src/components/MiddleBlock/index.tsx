@@ -78,6 +78,8 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
+  const [startIndex, setStartIndex] = useState<number>(0);
+
   return (
     <MiddleBlockSection ref={ref}>
       <Slide direction="up" triggerOnce>
@@ -99,7 +101,9 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
                 }}
                 renderItem={({group, original, websites, links}: ReactSlidesItem): React.JSX.Element => {
                   if (group === "wordpress" || group === "drupal") {
-                    return <CmsCollage group={group} websites={websites} setModalOpen={()=>setModalOpen(!modalOpen)} />
+
+
+                    return <CmsCollage group={group} websites={websites} setModalOpen={() => setModalOpen(!modalOpen)} setStartIndex={setStartIndex} />
                   } 
 
 
@@ -128,7 +132,7 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
           
           </ContentWrapper>
-          <ModalComp slide={galleryImage} modalOpen={modalOpen} setModalOpen={() => setModalOpen(!modalOpen)} />
+          <ModalComp slide={galleryImage} modalOpen={modalOpen} setModalOpen={() => setModalOpen(!modalOpen)} startIndex={startIndex} />
         </Row>
       </Slide>
     </MiddleBlockSection>
@@ -144,9 +148,10 @@ interface CollageProps {
 
 
   setModalOpen: () => void;
+  setStartIndex: (index: number) => void;
 }
 
-function CmsCollage ({group, setModalOpen, websites}: CollageProps) {
+function CmsCollage ({group, setModalOpen, setStartIndex, websites}: CollageProps) {
 
   const collageRef = useRef<HTMLDivElement>(null);
 
@@ -194,7 +199,7 @@ function CmsCollage ({group, setModalOpen, websites}: CollageProps) {
 
 
     //console.log(group, websites);
-    const slides = websites?.map((website: WebsiteItem, i: number) => <ImageGalleryItemContainerWrapper className="image-slide" key={i} onClick={setModalOpen}>
+    const slides = websites?.map((website: WebsiteItem, i: number) => <ImageGalleryItemContainerWrapper className="image-slide" key={i} onClick={() => {setModalOpen();setStartIndex(i)}}>
       <FullscreenOutlined className="full-screen-icon" />
       <ImageGalleryItem src={website.screenshot} />
     </ImageGalleryItemContainerWrapper>);
@@ -327,10 +332,13 @@ interface ModalProps {
 
   setModalOpen: () => void;
 
+
+  startIndex: number;
+
 }
 
 
-function ModalComp({modalOpen, setModalOpen, slide: {group, websites}}: ModalProps) {
+function ModalComp({modalOpen, setModalOpen, startIndex, slide: {group, websites}}: ModalProps) {
 
   if (group !== "drupal" && group !== "wordpress") return <></>;
 
@@ -349,13 +357,15 @@ function ModalComp({modalOpen, setModalOpen, slide: {group, websites}}: ModalPro
 
           
 
-          footer={null}
+            footer={null}
+
 
           >
-            <ImageGallery
-              items={slides}
 
-            
+
+            <ImageGallery 
+              items={slides}
+              startIndex={startIndex}
             />
 
           </Modal>
