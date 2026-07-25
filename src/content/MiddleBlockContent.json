@@ -214,7 +214,7 @@
 		
 			
 			"description": "A mobile application built using React Native, designed to deliver a smooth cross-platform experience on both Android and iOS using a single codebase.",
-			"originalTitle": "React Native (Expo)",
+			"originalTitle": "Mobile App - React Native (Expo)",
 			"websites": [],
 			"links": {
 				"github": "https://github.com/wellington-wong/mobile-app-rebates-points-system-react-native",
@@ -233,7 +233,7 @@
 
 
 			"description": "A Laravel-based referral web application built with scalability, maintainability, and clean architecture in mind.",
-			"originalTitle": "Laravel",
+			"originalTitle": "Referrals App - Laravel",
 			"websites": [],
 			"links": {
 				"github": "https://github.com/wellington-wong/referral-program-app-laravel-framework-php",
@@ -255,7 +255,7 @@
 			"thumbnail": "/img/logos/spring-boot.png",
 
 			"description": "A Retrieval-Augmented Generation (RAG) chatbot that provides context-aware responses by retrieving relevant document chunks before generating answers with an LLM.The application consists of an Angular frontend, a Spring Boot REST API backend, and PostgreSQL for persistent storage. It supports document ingestion, semantic retrieval, chat history, and contextual conversations.",
-			"originalTitle": "Angular + Spring Boot + PostgreSQL",
+			"originalTitle": "AI RAG Chatbot - Angular + Spring Boot + PostgreSQL",
 			"websites": [],
 			"links": {
 				"github": "https://github.com/wellington-wong/ai-contextual-chat-assistant-rag-spring-boot-angular-docker-cd",
@@ -275,7 +275,7 @@
 			"thumbnail": "/img/logos/fastapi.png",
 
 			"description": "An AI-powered web application that transforms lengthy notes into concise, easy-to-read summaries using the OpenAI API. Built with a modern full-stack architecture featuring Next.js, FastAPI, and PostgreSQL, with separate frontend and backend deployments for scalability.",
-			"originalTitle": "Next.js + FastAPI + PostgreSQL",
+			"originalTitle": "AI Notes Summarizer - Next.js + FastAPI + PostgreSQL",
 
 
 	
