@@ -87,7 +87,14 @@
 			  	"type": "cms",
 			    "thumb": "/img/website-portfolio/stanleylaw-thumb.jpg"
 			  }
-    		]
+    		],
+    		"links": {
+    			"github": "",
+
+
+
+    			"live": ""
+    		}
     	},
     	{
     		"group": "drupal",
@@ -190,11 +197,14 @@
 
 			  	"thumb": "/img/website-portfolio/twochic-thumb.jpg"
 			  }
-			]
+			],
+    		"links": {
+    			"github": "",
 		
 	
 
-
+    			"live": ""
+    		}
 
 		},
 		{
@@ -205,8 +215,16 @@
 			
 			"description": "A mobile application built using React Native, designed to deliver a smooth cross-platform experience on both Android and iOS using a single codebase.",
 			"originalTitle": "React Native (Expo)",
-			"websites": []
+			"websites": [],
+			"links": {
+				"github": "https://github.com/wellington-wong/mobile-app-rebates-points-system-react-native",
+				"live": "https://mobile-app.wellington.codes/"
+			}
 		},
+
+
+
+
 		{
 			"group": "laravel",
 			"original": "/img/website-portfolio/referrals.jpg",
@@ -216,8 +234,19 @@
 
 			"description": "A Laravel-based referral web application built with scalability, maintainability, and clean architecture in mind.",
 			"originalTitle": "Laravel",
-			"websites": []
+			"websites": [],
+			"links": {
+				"github": "https://github.com/wellington-wong/referral-program-app-laravel-framework-php",
+				"live": "https://referrals.wellington.codes/"
+			}
 		},
+
+
+
+		
+
+
+
 		{
 			"group": "spring-boot",
 			"original": "/img/website-portfolio/ragchat.jpg",
@@ -227,7 +256,13 @@
 
 			"description": "A Retrieval-Augmented Generation (RAG) chatbot that provides context-aware responses by retrieving relevant document chunks before generating answers with an LLM.The application consists of an Angular frontend, a Spring Boot REST API backend, and PostgreSQL for persistent storage. It supports document ingestion, semantic retrieval, chat history, and contextual conversations.",
 			"originalTitle": "Angular + Spring Boot + PostgreSQL",
-			"websites": []
+			"websites": [],
+			"links": {
+				"github": "https://github.com/wellington-wong/ai-contextual-chat-assistant-rag-spring-boot-angular-docker-cd",
+				"live": "https://ragchat.wellington.codes/"
+			}
+
+
 		},
 		{
 
@@ -235,16 +270,29 @@
 
 			"group": "fastapi",
 			"original": "/img/website-portfolio/ai-summarizer.jpg",
-			"thumbnail": "/img/logos/fastapi.png",
 
+
+			"thumbnail": "/img/logos/fastapi.png",
 
 			"description": "An AI-powered web application that transforms lengthy notes into concise, easy-to-read summaries using the OpenAI API. Built with a modern full-stack architecture featuring Next.js, FastAPI, and PostgreSQL, with separate frontend and backend deployments for scalability.",
 			"originalTitle": "Next.js + FastAPI + PostgreSQL",
 
 
 	
-			"websites": []
+			"websites": [],
 
+	
+
+			"links": {
+
+				"github": "https://github.com/wellington-wong/ai-notes-summarizer-nextjs-fastapi-docker",
+
+				"live": "https://summarizer.wellington.codes/"
+			}
+
+		
+	
+		
 		}
 	]
 }

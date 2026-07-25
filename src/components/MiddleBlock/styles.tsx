@@ -21,6 +21,8 @@ export const ContentWrapper = styled("div")`
   max-width: 570px;
 
   @media only screen and (max-width: 768px) {
+
+
     max-width: 100%;
   }
 `;
@@ -29,6 +31,9 @@ export const ImageGalleryItem = styled("img")`
   object-fit: inherit !important;
   max-height: none !important;
   max-width: 75%;
+
+
+
 `;
 export const ImageGalleryCaption = styled("div")`
   position: absolute;
@@ -89,4 +94,49 @@ export const ImageGalleryContainer = styled("div")`
 export const ImageSlicerContainer = styled("div")`
   width: 75%;
   margin: 0 auto;
+
+
+`;
+
+export const SlideLinksContainer = styled("div")`
+  right: 100px;
+  bottom: 50px;
+
+  position: absolute;
+
+
+
+  z-index: 999;
+`;
+
+
+export const SlideLink = styled("a")`
+  font-size: 25px;
+  padding: 7.5px 15px;
+
+
+
+
+  border-radius: 8px;
+  margin-left: 10px;
+  border-color: rgb(53, 56, 57);
+
+  border-style: solid;
+  border-width: 2px;
+
+
+
+  color: rgb(53, 56, 57);
+  background-color: #f5f5f5;
+
+  :hover {
+    background-color: rgb(255, 130, 92);
+    color: #f5f5f5;
+
+
+
+
+    border-color: rgb(255, 130, 92);
+
+  }
 `;

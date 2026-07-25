@@ -5,7 +5,7 @@ import { Slide } from "react-awesome-reveal";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/image-gallery.css";
 import type { GalleryItem } from "react-image-gallery";
-//import { GithubFilled, LinkOutlined } from '@ant-design/icons';
+import { GithubFilled, LinkOutlined } from '@ant-design/icons';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ImageSlicer from "../../common/utils/imageSlicer";
@@ -18,6 +18,8 @@ import {
   NewLink,
   ImageGalleryContainer,
   ImageSlicerContainer,
+  SlideLinksContainer,
+  SlideLink
 } from "./styles";
 
 interface WebsiteItem {
@@ -57,6 +59,11 @@ export interface ReactSlidesItem extends GalleryItem {
   description?: string;
   originalTitle?: string;
   thumbnail?: string;
+
+  links?: {
+    github: string,
+    live: string,
+  };
 }
 
 
@@ -86,13 +93,26 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
                   )
                 }}
-                renderItem={({group, original, websites}: ReactSlidesItem): React.JSX.Element => {
+                renderItem={({group, original, websites, links}: ReactSlidesItem): React.JSX.Element => {
                   if (group === "wordpress" || group === "drupal") {
                     return <CmsCollage group={group} websites={websites} />
                   } 
 
-              
-                  return <AnimatedSlide src={ original } group={ group } />
+
+                  return <>
+                    <SlideLinksContainer>
+                      <SlideLink href={links?.github} target={"_blank"} title={"GitHub"}><GithubFilled /></SlideLink>
+
+                      <SlideLink href={links?.live} target={"_blank"} title={"Live"}><LinkOutlined /></SlideLink>
+
+                    
+                    </SlideLinksContainer>
+
+
+                  
+                    <AnimatedSlide src={ original } group={ group } />
+                
+                  </>
                 }}
               />
              <ImageGalleryCaptionHeading>
