@@ -146,7 +146,7 @@ function CmsCollage ({group, websites}: CollageProps) {
 
     const handler = (e: Event) => {
       const activeGroup = (e as CustomEvent<string>).detail;
-      console.log(group, activeGroup);
+      //console.log(group, activeGroup);
       if (activeGroup !== group) return;
       tl.current?.restart();
     }
@@ -169,7 +169,7 @@ function CmsCollage ({group, websites}: CollageProps) {
 
       duration: 1.1,
       stagger: 0.08,
-      rotation: () => gsap.utils.random(-360, 360),
+      //rotation: () => gsap.utils.random(-360, 360),
 
       x: () => gsap.utils.random(-700, 700),
       y: () => gsap.utils.random(-500, 500),
@@ -263,7 +263,7 @@ function AnimatedSlide({ src, group }: AnimatedSlideProps) {
 
 
       scale: 0,
-      rotation: () => gsap.utils.random(-188, 188),
+      //rotation: () => gsap.utils.random(-188, 188),
 
       x: () => gsap.utils.random(-500, 500),
 
