@@ -27,12 +27,63 @@ export const ContentWrapper = styled("div")`
   }
 `;
 
+export const ImageGalleryItemContainerWrapper = styled("div")`
+  position: relative;
+  width: 100%;
+
+
+
+  .full-screen-icon {
+    position: absolute;
+
+    font-size: 50px;
+
+
+    color: #f5f5f5;
+
+  
+    
+    
+    top: 50%;
+
+    display: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+
+
+  
+  :hover {
+    .full-screen-icon {
+
+      display: block;
+    }
+
+  
+
+  ::before {
+    position: absolute;
+
+    
+    content: "";
+  
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(53, 56, 57, 0.22);
+
+    border-radius: 10px;
+  }
+`;
 export const ImageGalleryItem = styled("img")`
   object-fit: inherit !important;
   max-height: none !important;
-  max-width: 75%;
+  max-width: 100%;
 
 
+  border-radius: 10px;
 
 `;
 export const ImageGalleryCaption = styled("div")`
@@ -92,7 +143,7 @@ export const ImageGalleryContainer = styled("div")`
 `;
 
 export const ImageSlicerContainer = styled("div")`
-  width: 75%;
+  width: 70%;
   margin: 0 auto;
 
 
@@ -138,5 +189,29 @@ export const SlideLink = styled("a")`
 
     border-color: rgb(255, 130, 92);
 
+
+
+
+
+  
+    ::after {
+      border-color: #f5f5f5 transparent transparent transparent;
+    }
   }
+
+  ::after {
+    content: "";
+    border-color: transparent transparent transparent transparent;
+
+    position: absolute;
+    top: 5px;
+  
+
+    
+    right: 7.5px;
+
+    border-width: 10px 0 10px 10px;
+    border-style: solid none none solid;
+  }
+  position: relative;
 `;

@@ -1,11 +1,11 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { Row, Col } from "antd";
+import {  Modal ,Row, Col } from "antd";
 import { useTranslation } from "react-i18next";
 import { Slide } from "react-awesome-reveal";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/image-gallery.css";
 import type { GalleryItem } from "react-image-gallery";
-import { GithubFilled, LinkOutlined } from '@ant-design/icons';
+import { FullscreenOutlined, GithubFilled, LinkOutlined } from '@ant-design/icons';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ImageSlicer from "../../common/utils/imageSlicer";
@@ -19,7 +19,9 @@ import {
   ImageGalleryContainer,
   ImageSlicerContainer,
   SlideLinksContainer,
-  SlideLink
+  SlideLink,
+  ImageGalleryItemContainerWrapper,
+
 } from "./styles";
 
 interface WebsiteItem {
@@ -72,7 +74,9 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 
   
   const slides: ReactSlidesItem[] = galleryItems;
-  const [galleryImage, setGalleryImage] = useState(slides[0]);
+  const [galleryImage, setGalleryImage] = useState<GalleryItem>(slides[0]);
+
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <MiddleBlockSection ref={ref}>
@@ -95,7 +99,7 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
                 }}
                 renderItem={({group, original, websites, links}: ReactSlidesItem): React.JSX.Element => {
                   if (group === "wordpress" || group === "drupal") {
-                    return <CmsCollage group={group} websites={websites} />
+                    return <CmsCollage group={group} websites={websites} setModalOpen={()=>setModalOpen(!modalOpen)} />
                   } 
 
 
@@ -121,8 +125,10 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
               </ImageGalleryCaptionHeading>
               <Content>{t(galleryImage.description??"")}</Content>
             </Col>
-          </ContentWrapper>
 
+          
+          </ContentWrapper>
+          <ModalComp slide={galleryImage} modalOpen={modalOpen} />
         </Row>
       </Slide>
     </MiddleBlockSection>
@@ -134,10 +140,13 @@ const MiddleBlock = forwardRef<HTMLDivElement, MiddleBlockProps>(({ title, conte
 interface CollageProps {
   group?: string;
   websites?: WebsiteItem[];
+
+
+
+  setModalOpen: () => void;
 }
 
-
-function CmsCollage ({group, websites}: CollageProps) {
+function CmsCollage ({group, setModalOpen, websites}: CollageProps) {
 
   const collageRef = useRef<HTMLDivElement>(null);
 
@@ -185,9 +194,10 @@ function CmsCollage ({group, websites}: CollageProps) {
 
 
     //console.log(group, websites);
-    const slides = websites?.map((website: WebsiteItem, i: number) => (
-      <ImageGalleryItem className="image-slide" src={website.screenshot} key={i} />
-    ));
+    const slides = websites?.map((website: WebsiteItem, i: number) => <ImageGalleryItemContainerWrapper className="image-slide" key={i} onClick={setModalOpen}>
+      <FullscreenOutlined className="full-screen-icon" />
+      <ImageGalleryItem src={website.screenshot} />
+    </ImageGalleryItemContainerWrapper>);
     return <ImageGalleryContainer className="image-gallery-container" ref={collageRef}>{slides}</ImageGalleryContainer>
 
 
@@ -296,9 +306,45 @@ function AnimatedSlide({ src, group }: AnimatedSlideProps) {
 
   return <ImageSlicerContainer>
     <ImageSlicer src={src} ref={ref} />
-  </ImageSlicerContainer>
 
+
+
+  </ImageSlicerContainer>
 
 }
 
+
+interface ModalProps {
+
+
+
+  slide: ReactSlidesItem;
+  modalOpen: boolean;
+
+}
+
+
+
+
+
+function ModalComp({modalOpen, slide: {group, websites}}: ModalProps) {
+
+  if (group !== "drupal" && group !== "wordpress") return <></>;
+
+  const slides: GalleryItem[] = websites?.map(({screenshot: original, thumb: thumbnail}: WebsiteItem) => ({ original, thumbnail }))??[];
+
+  return <Modal
+            open={modalOpen}
+            onCancel={alert}
+
+
+
+ 
+            width={"88%"}
+          >
+            <ImageGallery
+              items={slides}
+            />
+          </Modal>
+}
 export default(MiddleBlock);
