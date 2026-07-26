@@ -397,7 +397,7 @@ function ModalComp({modalOpen, setModalOpen, startIndex, slide: {group, websites
                 <ModalGalleryImage className={"image-gallery-image"} src={original} />
                 <ModalGalleryDescription className={"image-gallery-description"}>
 
-                  <ModalGalleryLink href={link} rel="noreferrer noopener">
+                  <ModalGalleryLink href={link} rel="noreferrer noopener" target={"_blank"}>
                     {title} <LinkOutlined />
                   </ModalGalleryLink>
 
