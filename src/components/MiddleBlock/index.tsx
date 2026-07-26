@@ -11,6 +11,8 @@ import gsap from "gsap";
 import ImageSlicer from "../../common/utils/imageSlicer";
 import {
   MiddleBlockSection,
+  
+
   Content,
   ContentWrapper,
   ImageGalleryCaptionHeading,
@@ -21,6 +23,11 @@ import {
   SlideLinksContainer,
   SlideLink,
   ImageGalleryItemContainerWrapper,
+
+
+  ModalGalleryImage,
+  ModalGalleryDescription,
+  ModalGalleryLink,
 
 } from "./styles";
 
@@ -338,11 +345,25 @@ interface ModalProps {
 }
 
 
-function ModalComp({modalOpen, setModalOpen, startIndex, slide: {group, websites}}: ModalProps) {
 
+
+export interface ModalGalleryItem extends GalleryItem {
+  original: string;
+  thumb?: string;
+
+  title?: string;
+  link?: string;
+  type?: string;
+
+
+
+  description?: string;
+}
+
+function ModalComp({modalOpen, setModalOpen, startIndex, slide: {group, websites}}: ModalProps) {
   if (group !== "drupal" && group !== "wordpress") return <></>;
 
-  const slides: GalleryItem[] = websites?.map(({screenshot: original, thumb: thumbnail}: WebsiteItem) => ({ original, thumbnail }))??[];
+  const slides: ModalGalleryItem[] = websites?.map(({screenshot: original, thumb: thumbnail, link, title, type}: WebsiteItem) => ({ original, thumbnail, link, title, type}))??[];
 
   return <Modal
             open={modalOpen}
@@ -366,9 +387,31 @@ function ModalComp({modalOpen, setModalOpen, startIndex, slide: {group, websites
             <ImageGallery 
               items={slides}
               startIndex={startIndex}
+            
+              showPlayButton={false}
+
+              
+
+              showFullscreenButton={false}
+              renderItem={({original, thumbnail, link, title, type}: ModalGalleryItem): React.JSX.Element => <>
+                <ModalGalleryImage className={"image-gallery-image"} src={original} />
+                <ModalGalleryDescription className={"image-gallery-description"}>
+
+                  <ModalGalleryLink href={link}>
+                    {title} <LinkOutlined />
+                  </ModalGalleryLink>
+
+
+
+
+
+                </ModalGalleryDescription>
+              </>}
             />
+
+          
+
 
           </Modal>
 }
-
 export default(MiddleBlock);

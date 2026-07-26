@@ -215,3 +215,16 @@ export const SlideLink = styled("a")`
   }
   position: relative;
 `;
+
+export const ModalGalleryImage = styled("img")``;
+
+export const ModalGalleryDescription = styled("span")``;
+
+
+
+export const ModalGalleryLink = styled("a")`
+  color: #f5f5f5;
+  font-weight: bold;
+
+  font-family: "Motiva Sans Bold";
+`;
